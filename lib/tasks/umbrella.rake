@@ -3,5 +3,9 @@ task(:umbrella) do
   weather_parsed_file = JSON.parse(weather_file)
   ap weather_parsed_file['currently']['temperature']
 
-  weather_url = https://maps.googleapis.com/maps/api/geocode/json?address=Merchandise%20Mart%20Chicago&key=AIzaSyDB6uZXmYRlo88RLhAxD-yxUbMIZd4oHpg
+  geocoding_url = "https://maps.googleapis.com/maps/api/geocode/json?address=Merchandise%20Mart%20Chicago&key=AIzaSyDB6uZXmYRlo88RLhAxD-yxUbMIZd4oHpg"
+  address_raw_file = open(geocoding_url).read
+  address_parsed_file = JSON.parse(address_raw_file)
+
+  ap address_parsed_file
 end
