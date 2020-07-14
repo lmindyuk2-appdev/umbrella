@@ -1,6 +1,7 @@
 task(:umbrella) do
 
-  user_location = "340 E North Water"
+  STDOUT.puts "Enter location:"
+  user_location = STDIN.gets.chomp
 
   geocoding_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + user_location + "&key=" + ENV.fetch("GEOCODING_API_KEY")
   address_raw_file = open(geocoding_url).read
@@ -20,7 +21,7 @@ task(:umbrella) do
   require "date"
   require "time"
   n = 1
-  number_of_hours_ahead = 12
+  number_of_hours_ahead = 12 #number of hours ahead to check for rain
   likely_to_rain = 0
   rain_probability_threshold = 0.5
   
